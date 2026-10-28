@@ -40,11 +40,12 @@ The same object is saved on its own as `profile.json` in the folder, so later ru
   "hours_per_week": 3,
   "limits": ["No Facebook groups"],
   "already_in": [],
-  "assumptions": "One line, or omit"
+  "assumptions": "One line, or omit",
+  "allow_own_browser": false
 }
 ```
 
-`country` sets the date format (US style for the United States and Canada, day first elsewhere).
+`allow_own_browser` records whether they said yes to research in their own browser, so the scheduled refresh can follow it. `country` sets the date format (US style for the United States and Canada, day first elsewhere).
 
 ## A find
 

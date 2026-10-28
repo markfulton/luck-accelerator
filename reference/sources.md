@@ -28,7 +28,7 @@ What to record for each: the name, the business, why they fit, the public page y
 
 | Source | Notes |
 |---|---|
-| Meetup | `site:meetup.com <city> <topic>`. Read the event page for the date. Meetup often refuses scripts, so confirm with your page read tool. A group page can show dates an event page hides |
+| Meetup | `site:meetup.com <city> <topic>`. Read the event page for the date. Meetup often refuses scripts, so confirm it in a browser. A group page can show dates an event page hides |
 | Eventbrite | `site:eventbrite.com <city> <topic>` or the country domain (eventbrite.co.uk, eventbrite.com.au). Check the date and the ticket price |
 | Luma | `site:lu.ma <city> <topic>` and `site:luma.com <city>`. Strong for tech, startup and creator events |
 | Chambers of commerce | The chamber's own events calendar. Many networking breakfasts are open to non members |
@@ -45,7 +45,7 @@ Keep events dated in the next 30 days, plus standout events up to 60 days out ta
 | Source | How to find | How to confirm |
 |---|---|---|
 | Skool | `site:skool.com <niche>`, skool.com/discovery | The community's about page shows member count, price, and whether it is free. Note if it is paid |
-| Subreddits | `site:reddit.com/r <niche>`, `<niche> subreddit` | Reddit often refuses scripts. Confirm the subreddit exists and is active with your page read tool or a dated search result. Read its rules in the sidebar before drafting a post. Many subreddits ban self promotion entirely; say so |
+| Subreddits | `site:reddit.com/r <niche>`, `<niche> subreddit` | Reddit often refuses scripts. Confirm the subreddit exists and is active by opening it in a browser. Read its rules in the sidebar before drafting a post. Many subreddits ban self promotion entirely; say so |
 | Discord servers | disboard.org tags, `<niche> discord server` | A public invite page or a listing with a recent bump date. Invite links expire; prefer the server's own website link |
 | Slack communities | `<niche> slack community` | The community's own site with a join form |
 | Facebook groups | `<niche> facebook group <city>` | Only include if a public page shows the group name and member count. Never join for the user |

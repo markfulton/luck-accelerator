@@ -4,7 +4,7 @@
 //   node check-links.mjs --selftest
 // ok: the page answered. moved: it redirected to a site's home page, which usually means the
 // event or listing is gone. blocked: the site refuses scripts (LinkedIn, Reddit, Facebook,
-// Meetup and others), so the agent must confirm it with its own page read tool. dead: not found,
+// Meetup and others), so the agent must confirm it in a browser. dead: not found,
 // server error, or no such host. Exits 1 when any link is dead. No dependencies, Node 18 or newer.
 import fs from "node:fs";
 
@@ -92,7 +92,7 @@ async function run(file, asJson) {
   } else {
     for (const r of results) process.stdout.write(r.verdict.padEnd(8) + r.url + "  (" + r.note + ")\n");
     process.stdout.write("\n" + summary.total + " links: " + summary.ok + " ok, " + summary.moved + " moved, " + summary.blocked + " blocked, " + summary.dead + " dead\n");
-    if (summary.blocked) process.stdout.write("Confirm each blocked link with your page read tool before keeping it.\n");
+    if (summary.blocked) process.stdout.write("Confirm each blocked link by opening it in a browser before keeping it.\n");
     if (summary.moved) process.stdout.write("A moved link usually means the page is gone. Replace it or remove the find.\n");
   }
   process.exit(summary.dead ? 1 : 0);

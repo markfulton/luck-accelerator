@@ -23,7 +23,7 @@ If today already has a `runs/<today>/` folder, stop. The run already happened.
 
 ## 3. Find new openings
 
-Research as in section 4 of `SKILL.md`, with smaller targets, because the point is what is new:
+Research as in section 4 of `SKILL.md`, with smaller targets, because the point is what is new. Use your built-in browser when a page needs one. Use the person's own browser only if `profile.json` has `allow_own_browser: true`; nobody is there to ask.
 
 | Find | New finds to aim for |
 |---|---|
@@ -55,7 +55,7 @@ node scripts/check-links.mjs "<data folder>/runs/<today>/report.md"
 node scripts/copy-check.mjs "<data folder>/runs/<today>/report.md"
 ```
 
-Fix every problem, confirm every `blocked` link with a page read, remove every `dead` or `moved` one, and rebuild until all three pass. Fill in `checks` honestly. Do not start the dashboard server. The person opens it when they are ready.
+Fix every problem, confirm every `blocked` link by opening it in a browser or a page read tool, remove every `dead` or `moved` one, and rebuild until all three pass. Fill in `checks` honestly. Do not start the dashboard server. The person opens it when they are ready.
 
 ## 6. Save the run in the folder's history
 

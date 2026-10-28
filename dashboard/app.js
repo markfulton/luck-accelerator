@@ -228,7 +228,7 @@
     moves() {
       const rows = (cur.top_moves || []).map((m, i) => {
         const done = !!P.plan[moveKey(i)];
-        return '<div class="move ' + (done ? "done" : "") + '"><input class="check" type="checkbox" data-check="' + moveKey(i) + '" ' + (done ? "checked" : "") + ' aria-label="Done"><span class="idx">' + (i + 1) + '</span><div class="text">' + esc(m.text) + (m.find ? "<div>" + findChip(m.find) + "</div>" : "") + "</div></div>";
+        return '<div class="move ' + (done ? "done" : "") + '"><input class="check" type="checkbox" data-check="' + moveKey(i) + '" ' + (done ? "checked" : "") + ' aria-label="Done"><span class="idx">' + (i + 1) + '</span><div class="text">' + esc(m.text) + (m.find ? '<div class="chip-row">' + findChip(m.find) + "</div>" : "") + "</div></div>";
       }).join("");
       return '<div class="card pad-lg"><div class="card-title"><h3>Your top three moves</h3><span class="eyebrow">This week</span></div>' + rows +
         '<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn small primary" data-go="week">' + ICON.week + "See the full week</button><button class=\"btn small\" data-go=\"opportunities\">" + ICON.opportunities + "All opportunities</button></div></div>";
@@ -236,7 +236,7 @@
     insights() {
       if (!cur.insights || !cur.insights.length) return "";
       return '<div class="section"><div class="section-head"><h2>What stands out</h2><p>Patterns across this week\'s finds</p></div><div class="grid grid-fit">' +
-        cur.insights.map((x) => '<div class="card insight"><div class="eyebrow">' + ICON.spark.replace("<svg", '<svg width="12" height="12"') + "Insight</div><h3>" + esc(x.title) + "</h3><p>" + esc(x.body) + "</p><div>" + (x.finds || []).map(findChip).join("") + "</div></div>").join("") + "</div></div>";
+        cur.insights.map((x) => '<div class="card insight"><div class="eyebrow">' + ICON.spark.replace("<svg", '<svg width="12" height="12"') + "Insight</div><h3>" + esc(x.title) + "</h3><p>" + esc(x.body) + "</p><div class=\"chip-row\">" + (x.finds || []).map(findChip).join("") + "</div></div>").join("") + "</div></div>";
     },
     panels() {
       if (!cur.panels || !cur.panels.length) return "";
@@ -307,7 +307,7 @@
         const dayEvents = evts.filter((f) => f.event.start.slice(0, 10) === day.date);
         return '<div class="card day ' + (isToday ? "today" : "") + '"><div class="day-head"><div><div class="day-name">' + esc(fmt(day.date, { weekday: "long" })) + '</div><div class="day-date">' + esc(fmt(day.date, { day: "numeric", month: "short" })) + (isToday ? ' · <span class="today-tag">Today</span>' : "") + '</div></div><span class="mins">' + day.minutes + " min</span></div>" +
           dayEvents.map((f) => '<button class="event-pill" data-open="' + esc(f.id) + '"><time>' + esc(fmtTime(f.event.start) || "All day") + "</time>" + esc(f.name) + "</button>").join("") +
-          day.actions.map((a, i) => { const k = planKey(day.date, i); const done = !!P.plan[k]; const id = "c" + k.replace(/[^a-z0-9]/gi, ""); return '<div class="action ' + (done ? "done" : "") + '"><input class="check" type="checkbox" id="' + id + '" data-check="' + esc(k) + '" ' + (done ? "checked" : "") + '><div><label for="' + id + '">' + esc(a.text) + "</label>" + (a.find ? "<div>" + findChip(a.find) + "</div>" : "") + "</div></div>"; }).join("") +
+          day.actions.map((a, i) => { const k = planKey(day.date, i); const done = !!P.plan[k]; const id = "c" + k.replace(/[^a-z0-9]/gi, ""); return '<div class="action ' + (done ? "done" : "") + '"><input class="check" type="checkbox" id="' + id + '" data-check="' + esc(k) + '" ' + (done ? "checked" : "") + '><div><label for="' + id + '">' + esc(a.text) + "</label>" + (a.find ? '<div class="chip-row">' + findChip(a.find) + "</div>" : "") + "</div></div>"; }).join("") +
           "</div>";
       }).join("") + "</div>" +
       (cur.creative_moves && cur.creative_moves.length ? '<div class="section"><div class="section-head"><h2>If you have extra time</h2><p>Bigger moves that compound</p></div><div class="grid grid-3">' + cur.creative_moves.map(moveCard).join("") + "</div></div>" : "");
@@ -339,7 +339,7 @@
   function card(f) {
     const st = statusOf(f.id);
     return '<article class="card find" data-open="' + esc(f.id) + '" style="--cat:' + CAT[f.category].color + ';' + (st === "passed" ? "opacity:.55" : "") + '" tabindex="0">' +
-      '<div class="find-top"><div class="who"><span class="cat-label">' + ICON[CAT[f.category].icon].replace("<svg", '<svg width="13" height="13"') + esc(catLabel(f.category)) + "</span>" + (f.isNew ? ' <span class="badge-new">New</span>' : "") + "<h3>" + esc(f.name) + '</h3><div class="sub">' + esc(subline(f)) + "</div></div>" + coin(f.total) + "</div>" +
+      '<div class="find-top"><div class="who"><div class="kicker-row"><span class="cat-label">' + ICON[CAT[f.category].icon].replace("<svg", '<svg width="13" height="13"') + esc(catLabel(f.category)) + "</span>" + (f.isNew ? '<span class="badge-new">New</span>' : "") + "</div><h3>" + esc(f.name) + '</h3><div class="sub">' + esc(subline(f)) + "</div></div>" + coin(f.total) + "</div>" +
       '<p class="why">' + esc(f.why) + "</p>" +
       '<div class="find-foot"><div class="parts"><div class="part">Audience<div class="pips">' + pips(f.score.audience, 4) + '</div></div><div class="part">Reach<div class="pips">' + pips(f.score.reach, 3) + '</div></div><div class="part">Momentum<div class="pips">' + pips(f.score.momentum, 3) + '</div></div></div><span class="status-pill ' + st + '">' + esc(statusWord(f, st)) + "</span></div></article>";
   }
@@ -363,7 +363,7 @@
   }
 
   function moveCard(m, i) {
-    return '<div class="card move-card"><div class="num-badge">' + (i + 1) + "</div><h3>" + esc(m.title) + "</h3><p>" + esc(m.body) + "</p>" + (m.minutes ? '<p class="muted" style="margin-top:8px;font-size:13px">About ' + esc(m.minutes) + " minutes</p>" : "") + "<div>" + (m.finds || []).map(findChip).join("") + "</div></div>";
+    return '<div class="card move-card"><div class="num-badge">' + (i + 1) + "</div><h3>" + esc(m.title) + "</h3><p>" + esc(m.body) + "</p>" + (m.minutes ? '<p class="muted" style="margin-top:8px;font-size:13px">About ' + esc(m.minutes) + " minutes</p>" : "") + "<div class=\"chip-row\">" + (m.finds || []).map(findChip).join("") + "</div></div>";
   }
 
   function niches() {
@@ -392,7 +392,7 @@
     const note = (P.items[id] && P.items[id].note) || "";
     const words = STAGE_WORDS[f.category];
     $("#drawer").innerHTML =
-      '<div class="drawer-head" style="--cat:' + CAT[f.category].color + '">' + coin(f.total, "lg") + '<div class="who"><span class="cat-label">' + esc(catLabel(f.category)) + "</span>" + (f.isNew ? ' <span class="badge-new">New</span>' : "") + (f.carried ? ' <span class="badge-carry">From your ' + esc(fmt(f.fromRun, { day: "numeric", month: "short" })) + " run</span>" : "") + "<h2>" + esc(f.name) + '</h2><div class="muted" style="font-size:13.5px">' + esc(subline(f)) + '</div></div><button class="icon-btn" data-close aria-label="Close">' + ICON.close + "</button></div>" +
+      '<div class="drawer-head" style="--cat:' + CAT[f.category].color + '">' + coin(f.total, "lg") + '<div class="who"><div class="kicker-row"><span class="cat-label">' + esc(catLabel(f.category)) + "</span>" + (f.isNew ? '<span class="badge-new">New</span>' : "") + (f.carried ? '<span class="badge-carry">From your ' + esc(fmt(f.fromRun, { day: "numeric", month: "short" })) + " run</span>" : "") + "</div><h2>" + esc(f.name) + '</h2><div class="muted" style="font-size:13.5px">' + esc(subline(f)) + '</div></div><button class="icon-btn" data-close aria-label="Close">' + ICON.close + "</button></div>" +
       '<div class="drawer-body">' +
       "<div><h4>Why it fits</h4><p style=\"margin:0;font-size:15px\">" + esc(f.why) + "</p></div>" +
       '<div class="score-break"><div><b>' + f.score.audience + '<span class="muted" style="font-size:13px"> / 4</span></b><span>Audience</span></div><div><b>' + f.score.reach + '<span class="muted" style="font-size:13px"> / 3</span></b><span>Reach</span></div><div><b>' + f.score.momentum + '<span class="muted" style="font-size:13px"> / 3</span></b><span>Momentum</span></div></div>' +
@@ -475,7 +475,7 @@
     const v = current();
     const pt = planTotals();
     const counts = { week: pt.total - pt.done, opportunities: finds.filter((f) => statusOf(f.id) === "open").length, pipeline: all.filter((f) => rank(statusOf(f.id)) >= 0).length };
-    const html = (short) => VIEWS.map((x) => '<a class="tab" href="#' + x.key + '"' + (x.key === v ? ' aria-current="page"' : "") + ">" + ICON[x.key] + "<span>" + esc(short ? x.short : x.label) + "</span>" + (counts[x.key] ? '<span class="count">' + counts[x.key] + "</span>" : "") + "</a>").join("");
+    const html = (short) => VIEWS.map((x) => '<a class="tab" href="#' + x.key + '"' + (x.key === v ? ' aria-current="page"' : "") + ">" + ICON[x.key] + (short ? "<span>" + esc(x.short) + "</span>" : '<span class="tab-long">' + esc(x.label) + '</span><span class="tab-short">' + esc(x.short) + "</span>") + (counts[x.key] ? '<span class="count">' + counts[x.key] + "</span>" : "") + "</a>").join("");
     $(".tabs").innerHTML = html(false);
     $(".tabbar").innerHTML = html(true);
   }
@@ -489,7 +489,8 @@
   function footer() {
     const c = cur.checks || {};
     $("#footer").innerHTML = '<div class="left">' + ICON.hand + "<span>Everything here lives in a folder on your computer. Nothing on this page is sent anywhere, and every action is yours to take.</span></div>" +
-      '<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span>' + esc(c.links || "") + '</span><button class="btn small" data-export>' + ICON.download + "Save progress file</button><span>Template " + esc(D.templateVersion || "") + "</span></div>";
+      '<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span>' + esc(c.links || "") + '</span><button class="btn small" data-export>' + ICON.download + "Save progress file</button><span>Template " + esc(D.templateVersion || "") + "</span></div>" +
+      '<a class="brandline" href="https://club.reinventing.ai/?utm_source=luck-accelerator&utm_medium=dashboard&utm_campaign=luck-accelerator" target="_blank" rel="noopener"><img src="assets/reinventing-ai.png" alt="" width="22" height="22"><span>Copyright 2026 Mark Fulton - Reinventing.AI Solutions</span></a>';
   }
 
   document.addEventListener("click", (ev) => {
