@@ -1,0 +1,16 @@
+{
+  "city": "Manchester",
+  "country": "United Kingdom",
+  "online_only": false,
+  "niche": "Strength and fitness coach for busy professionals aged 30 to 50",
+  "offer": "1:1 and small group strength coaching, in person in central Manchester and online",
+  "price": "about £150 a month",
+  "want": "Office workers, founders and parents getting back to training, plus referral partners: physio and sports massage clinics, nutritionists, corporate wellness leads, coworking spaces, running clubs",
+  "hours_per_week": 4,
+  "limits": [
+    "No Facebook groups",
+    "No events that cost more than £20"
+  ],
+  "already_in": [],
+  "assumptions": "\"No events over £20\" includes any membership needed to get in. \"No Facebook groups\" means nothing on Facebook at all. Individual names are left out of this example, so drafts greet people by business name or \"Hi there\"."
+}

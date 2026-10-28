@@ -1,0 +1,13 @@
+{
+  "city": "Austin",
+  "country": "United States",
+  "online_only": false,
+  "niche": "Freelance web designer, Webflow and WordPress sites for small local businesses",
+  "offer": "Small business website build",
+  "price": "roughly $3,500, plus a $150 a month care plan",
+  "want": "Local service businesses (restaurants, salons, clinics, home services, contractors) and referral partners who already serve them (marketing agencies without an in house developer, photographers, bookkeepers, coworking spaces)",
+  "hours_per_week": 3,
+  "limits": [],
+  "already_in": [],
+  "assumptions": "Austin includes the close suburbs, because Cedar Park had the most new business openings on any calendar I read. Plan minutes count time on site or at the keyboard, not driving. Individual names are left out of this example, so drafts greet people with \"Hi there\"."
+}

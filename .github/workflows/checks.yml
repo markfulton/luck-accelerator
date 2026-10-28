@@ -10,4 +10,6 @@ jobs:
           node-version: 20
       - run: node scripts/check-links.mjs --selftest
       - run: node scripts/copy-check.mjs --selftest
+      - run: node scripts/build.mjs --selftest
+      - run: node dashboard/serve.mjs --selftest
       - run: node .github/scripts/no-dashes.mjs

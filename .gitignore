@@ -3,3 +3,5 @@ node_modules/
 Thumbs.db
 # A user's own runs never belong in this repo.
 /luck-accelerator/
+.claude/
+examples/*/progress.json

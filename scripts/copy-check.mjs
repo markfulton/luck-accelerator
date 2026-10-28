@@ -4,7 +4,8 @@
 //   node copy-check.mjs --selftest
 // Whole file: no em dashes, en dashes, hype words or hashtags. Every quoted draft (lines that
 // start with ">"): no links, no pitch phrases, at most one question, at most 400 characters
-// (community posts, marked by "Introduction post", may run to 120 words). Exits 1 on any failure.
+// (community posts, marked by "Introduction post" or "Helpful answer", may run to 120 words).
+// Exits 1 on any failure.
 // No dependencies, Node 18 or newer.
 import fs from "node:fs";
 
@@ -21,7 +22,7 @@ export function drafts(text) {
   let cur = null;
   let kind = "message";
   lines.forEach((line, i) => {
-    if (/introduction post/i.test(line)) kind = "post";
+    if (/introduction post|helpful answer/i.test(line)) kind = "post";
     else if (/^#{1,6}\s/.test(line)) kind = "message";
     if (/^\s*>/.test(line)) {
       const body = line.replace(/^\s*>\s?/, "");

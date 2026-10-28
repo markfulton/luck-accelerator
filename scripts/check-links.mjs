@@ -35,6 +35,8 @@ export function classify(url, status, finalUrl, error) {
     return { verdict: "dead", note: error };
   }
   if (status >= 200 && status < 400) {
+    // These sites often answer scripts with a 200 block or login page, so a person confirms them.
+    if (BOT_WALLED.test(host)) return { verdict: "blocked", note: "HTTP " + status + ", site often shows scripts a block page" };
     if (finalUrl && finalUrl !== url) {
       try {
         const a = new URL(url), b = new URL(finalUrl);
@@ -106,6 +108,7 @@ function selftest() {
   eq("403 blocked", classify("https://a.com/x", 403).verdict, "blocked");
   eq("linkedin 999", classify("https://www.linkedin.com/company/x", 999).verdict, "blocked");
   eq("reddit 500", classify("https://www.reddit.com/r/x", 500).verdict, "blocked");
+  eq("reddit 200 still confirmed", classify("https://www.reddit.com/r/x", 200, "https://www.reddit.com/r/x").verdict, "blocked");
   eq("reddit 404", classify("https://www.reddit.com/r/x", 404).verdict, "dead");
   eq("404 dead", classify("https://a.com/x", 404).verdict, "dead");
   eq("dns dead", classify("https://nope.invalid/", undefined, undefined, "ENOTFOUND").verdict, "dead");

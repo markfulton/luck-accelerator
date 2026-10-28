@@ -1,6 +1,6 @@
 # Where to look
 
-Use the app's web search to discover, then read the actual page to confirm. These are starting points, not the only places. A good local find often comes from a source that is not on this list: a city business journal, a council's business support page, a university's entrepreneurship centre.
+Use the app's web search to discover, then read the actual page to confirm. If your search tool ignores `site:`, search the platform name with the topic instead (`meetup strength training manchester`). These are starting points, not the only places. A good local find often comes from a source that is not on this list: a city business journal, a council's business support page, a university's entrepreneurship centre.
 
 ## A. High value local connections
 
@@ -28,7 +28,7 @@ What to record for each: the name, the business, why they fit, the public page y
 
 | Source | Notes |
 |---|---|
-| Meetup | `site:meetup.com <city> <topic>`. Read the event page for the date. Meetup often refuses scripts, so confirm with your page read tool |
+| Meetup | `site:meetup.com <city> <topic>`. Read the event page for the date. Meetup often refuses scripts, so confirm with your page read tool. A group page can show dates an event page hides |
 | Eventbrite | `site:eventbrite.com <city> <topic>` or the country domain (eventbrite.co.uk, eventbrite.com.au). Check the date and the ticket price |
 | Luma | `site:lu.ma <city> <topic>` and `site:luma.com <city>`. Strong for tech, startup and creator events |
 | Chambers of commerce | The chamber's own events calendar. Many networking breakfasts are open to non members |
@@ -38,7 +38,7 @@ What to record for each: the name, the business, why they fit, the public page y
 | Libraries, councils, universities | Free business workshops. UK: local growth hubs and council business support. US: SBA, SCORE and SBDC workshops |
 | Online events | Luma, Eventbrite "online", community calendars inside public Skool or Circle pages |
 
-Keep only events dated in the future, inside 60 days, with the date shown on the page. Record date, start time with time zone if shown, venue or "online", price, and the registration link.
+Keep events dated in the next 30 days, plus standout events up to 60 days out tagged `book-ahead`. The date must show on the page, or follow from a stated pattern for a recurring event. If a calendar will not load, look for the same event on Eventbrite, Meetup or Luma before dropping it. Record date, start time with time zone if shown, venue or "online", price, and the registration link.
 
 ## C. Online networks and communities
 
