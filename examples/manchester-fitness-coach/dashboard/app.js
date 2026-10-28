@@ -186,10 +186,11 @@
         const st = statusOf(f.id);
         const size = topIds.has(f.id) ? 9 : 6.5;
         const cls = ["node", f.isNew ? "new" : "", st === "passed" ? "passed" : ""].join(" ");
-        s += '<g class="' + cls + '" data-open="' + esc(f.id) + '" data-tip="' + esc(f.id) + '" tabindex="0" role="button" aria-label="' + esc(f.name + ", fit " + f.total) + '" transform="translate(' + x.toFixed(1) + " " + y.toFixed(1) + ')">';
+        // Position on the outer group, so the hover scale on .node never replaces the translate.
+        s += '<g transform="translate(' + x.toFixed(1) + " " + y.toFixed(1) + ')"><g class="' + cls + '" data-open="' + esc(f.id) + '" data-tip="' + esc(f.id) + '" tabindex="0" role="button" aria-label="' + esc(f.name + ", fit " + f.total) + '">';
         if (f.isNew) s += '<circle class="pulse" r="' + size + '"/>';
         if (rank(st) >= 1) s += '<circle class="halo" r="' + (size + 4) + '"/>';
-        s += '<circle class="body" r="' + size + '" style="fill:' + CAT[c].color + '"/></g>';
+        s += '<circle class="body" r="' + size + '" style="fill:' + CAT[c].color + '"/></g></g>';
       });
     });
     s += '<circle r="33" fill="var(--card-solid)" stroke="var(--gold)" stroke-width="1.5"/><image href="assets/coin.webp" x="-40" y="-40" width="80" height="80" clip-path="url(#youclip)" preserveAspectRatio="xMidYMid slice"/>';
