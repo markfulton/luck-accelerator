@@ -1,0 +1,13 @@
+name: checks
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/check-links.mjs --selftest
+      - run: node scripts/copy-check.mjs --selftest
+      - run: node .github/scripts/no-dashes.mjs
