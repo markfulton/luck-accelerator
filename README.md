@@ -10,7 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://www.skool.com/vibe-coding-is-life/about?ref=456537abaf37491cbcc6976f3c26af41"><strong>Get more free tools like this in Vibe Coding is Life on Skool</strong></a>
+  <a href="https://club.reinventing.ai/luck-accelerator?utm_source=github&utm_medium=readme&utm_campaign=luck-accelerator&utm_content=nav-guide"><strong>Setup guide and download</strong></a>
+  &nbsp;&bull;&nbsp;
+  <a href="https://club.reinventing.ai/?utm_source=github&utm_medium=readme&utm_campaign=luck-accelerator&utm_content=nav-club"><strong>Agent Ops Club</strong></a>
+  &nbsp;&bull;&nbsp;
+  <a href="https://club.reinventing.ai/software?utm_source=github&utm_medium=readme&utm_campaign=luck-accelerator&utm_content=nav-software"><strong>More free software</strong></a>
 </p>
 
 <p align="center">
@@ -62,26 +66,28 @@ Two full example runs, one in the US and one in the UK. Download the repo and op
 - [A web designer in Austin, Texas](examples/austin-web-designer/runs/2026-10-28/report.md)
 - [A strength coach in Manchester, UK](examples/manchester-fitness-coach/runs/2026-10-28/report.md)
 
-## Install it in two steps
+## Install it
 
-1. **Download this repo.** Click the green **Code** button above, choose **Download ZIP**, and extract it to a folder on your computer.
-2. **Tell your agent to install it.** Open the Claude desktop app, go to the **Code** tab, pick any folder, and say:
+**The easy way.** Open the Claude desktop app, go to the **Code** tab, pick any folder, and paste this:
 
-   > Install the Luck Accelerator skill from this folder: (paste the folder path)
+```
+Install the Luck Accelerator skill for me from
+https://github.com/markfulton/luck-accelerator
+Put the whole folder in my skills folder as luck-accelerator
+(for the Claude desktop app that is ~/.claude/skills/luck-accelerator),
+keep every file, and check that SKILL.md is there.
+Then run the luck accelerator for me.
+```
 
 It works the same way in the Codex app, Antigravity and Cursor. Your agent does the setup.
 
+**Prefer a download?** Get the ZIP, the same install prompt and the setup guide with a free Agent Ops Club account at [club.reinventing.ai/luck-accelerator](https://club.reinventing.ai/luck-accelerator?utm_source=github&utm_medium=readme&utm_campaign=luck-accelerator&utm_content=install). Extract it, then paste the prompt above with the folder path in place of the link.
+
 ## Use it
 
-Say **"run the luck accelerator"** to your agent. It asks five short questions:
+Say **"run the luck accelerator"** to your agent.
 
-1. Where are you based?
-2. What do you do?
-3. What do you sell, and roughly what does it cost?
-4. Who do you want more of?
-5. How much time can you give this each week?
-
-It researches, ranks, writes, checks, and opens your dashboard. Then:
+It starts from what your agent already knows about you and your business, shows you a short profile to confirm, and asks only for what is missing: usually your hours a week and anything off limits. Then it researches, ranks, writes, checks, and opens your dashboard. Then:
 
 - **"Open my luck dashboard"** opens it again any time, with your progress saved.
 - **"Run the luck accelerator again"** finds new openings now.
@@ -117,9 +123,9 @@ Your answers, your runs, your progress and your dashboard are plain files in a `
 
 ## Where this comes from
 
-Created by Mark Fulton of Reinventing.AI, an AI agent and app developer and the founder of [Vibe Coding is Life](https://www.skool.com/vibe-coding-is-life/about?ref=456537abaf37491cbcc6976f3c26af41), a community of 340,000+ people building with AI.
+Created by Mark Fulton of Reinventing.AI, an AI agent and app developer and the founder of Vibe Coding is Life, a Facebook community of 340,000+ people building with AI.
 
-**Want more free tools like this one?** Join [Vibe Coding is Life on Skool](https://www.skool.com/vibe-coding-is-life/about?ref=456537abaf37491cbcc6976f3c26af41). It is free, and new skills, lessons and live sessions land there first.
+**Want more free tools like this one?** They are in the [Agent Ops Club software library](https://club.reinventing.ai/software?utm_source=github&utm_medium=readme&utm_campaign=luck-accelerator&utm_content=more-software), free with an account.
 
 **Ready to have AI agents installed and working in your business?** That is what the [Agent Ops Club](https://club.reinventing.ai/?utm_source=github&utm_medium=readme&utm_campaign=luck-accelerator&utm_content=next-step) is for.
 
