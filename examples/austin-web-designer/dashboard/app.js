@@ -653,7 +653,10 @@
   }
 
   // Router and chrome
-  const current = () => { const h = location.hash.slice(1); return VIEWS.some((v) => v.key === h) ? h : "overview"; };
+  /* The view comes from the hash; "#opportunities?find=<id>" also opens that find, so a find can be linked to directly. */
+  const hashParts = () => { const [view, query] = location.hash.slice(1).split("?"); return { view, find: new URLSearchParams(query || "").get("find") }; };
+  const current = () => { const h = hashParts().view; return VIEWS.some((v) => v.key === h) ? h : "overview"; };
+  const openFromHash = () => { const id = hashParts().find; if (id && byId.has(id)) drawer(id); };
   const RENDER = { overview, week, opportunities, pipeline, niches };
   function nav() {
     const v = current();
@@ -740,11 +743,11 @@
     tip.hidden = false;
   });
   document.addEventListener("mousemove", (ev) => { if (!tip.hidden) { tip.style.left = Math.min(ev.clientX + 14, innerWidth - 270) + "px"; tip.style.top = ev.clientY + 14 + "px"; } });
-  window.addEventListener("hashchange", () => { closeDrawer(); render(); window.scrollTo(0, 0); });
+  window.addEventListener("hashchange", () => { closeDrawer(); render(); window.scrollTo(0, 0); openFromHash(); });
 
   if (cur.theme && typeof cur.theme.hero === "string" && /^[\w./-]+$/.test(cur.theme.hero)) document.documentElement.style.setProperty("--hero-image", 'url("' + cur.theme.hero + '")');
   $("#profile-chip").textContent = [P0.niche, P0.online_only ? "Online" : P0.city].filter(Boolean).join(" · ");
   document.title = "Luck Accelerator · " + (P0.city || P0.niche || "");
-  loadProgress().then(() => { render(); footer(); });
+  loadProgress().then(() => { render(); footer(); openFromHash(); });
   window.LUCK = { data: D, progress: () => P, render };
 })();
