@@ -1,7 +1,7 @@
 // Written by build.mjs. Rebuilt on every run, do not edit by hand.
 window.LUCK_DATA = {
-  "generated": "2026-10-28T06:45:28.760Z",
-  "templateVersion": "1.0.0",
+  "generated": "2026-10-30T00:58:33.503Z",
+  "templateVersion": "1.1.0",
   "locale": "en-GB",
   "current": {
     "schema": 1,
@@ -24,7 +24,9 @@ window.LUCK_DATA = {
         "No events that cost more than £20"
       ],
       "already_in": [],
-      "assumptions": "\"No events over £20\" includes any membership needed to get in. \"No Facebook groups\" means nothing on Facebook at all. Individual names are left out of this example, so drafts greet people by business name or \"Hi there\"."
+      "assumptions": "\"No events over £20\" includes any membership needed to get in. \"No Facebook groups\" means nothing on Facebook at all. Individual names are left out of this example, so drafts greet people by business name or \"Hi there\".",
+      "timezone": "Europe/London",
+      "intro": "I coach strength for busy professionals in central Manchester."
     },
     "summary": "A running week. Three free or cheap runs sit around your working hours, and each is full of the desk bound professionals you coach. Two partner emails and one Slack introduction cover the referral side, and Reddit is for being useful, not for finding clients.",
     "top_moves": [
@@ -104,7 +106,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi there, \"Two events. One mission. Workforce Wellbeing for ALL.\" is a great line, and 1,000 people at Heaton Park in year one is quite a start. Is the 2027 Run & Walk open to very small local businesses as well as the big employers?",
-          "if_reply": "Thank them, and offer to share a simple 8 week walk to 5K plan their smaller teams could use before May, free."
+          "if_reply": "Thank them, and offer to share a simple 8 week walk to 5K plan their smaller teams could use before May, free.",
+          "nudge": "Hi again, hope planning for 2027 is going well. Is there a list I can join to hear when the Run & Walk opens to small businesses?"
         },
         "id": "connections:gm-wellbeing-series@gmwellbeingseries.com",
         "category": "connections",
@@ -136,7 +139,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi, first time at Root & Run. That warm up was proper, not the usual two leg swings and off. I read the club only started in the summer. How many regulars turn up most weeks now?",
-          "if_reply": "Say you coach strength in town and would happily lead a ten minute post run mobility block one week if they ever want a guest."
+          "if_reply": "Say you coach strength in town and would happily lead a ten minute post run mobility block one week if they ever want a guest.",
+          "nudge": "Hi again, back for another Root & Run this week and the group keeps growing. Is the Wednesday run open to drop ins all winter?"
         },
         "id": "connections:treehouse-hotel-manchester@treehousehotels.com",
         "category": "connections",
@@ -168,7 +172,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi Altius team, I like that you treat people at work as well as in clinic, especially the packages for folks who sit all day. I coach strength in central Manchester. Do most of your Bloc patients come from the offices around Marble Street?",
-          "if_reply": "Offer to send them clients who need hands on treatment, and ask who to talk to about passing patients your way once rehab ends."
+          "if_reply": "Offer to send them clients who need hands on treatment, and ask who to talk to about passing patients your way once rehab ends.",
+          "nudge": "Hi again, hope the week at Bloc is going well. Do you ever point patients towards strength coaching once their rehab is done?"
         },
         "id": "connections:altius-healthcare@altiushealthcare.co.uk",
         "category": "connections",
@@ -200,7 +205,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi Fix team, \"Come get your Fix\" made me smile, and a proper sauna you can walk to from the office is rare in town. I coach strength nearby. Do many of your regulars come to you straight from lifting or running?",
-          "if_reply": "Offer to point your clients to their recovery sessions, and ask whether they would ever host a small lift then sauna morning."
+          "if_reply": "Offer to point your clients to their recovery sessions, and ask whether they would ever host a small lift then sauna morning.",
+          "nudge": "Hi again, I finally tried the sauna after a Thursday session. Is the ice bath busiest early in the morning or after work?"
         },
         "id": "connections:fix@fixmcr.co.uk",
         "category": "connections",

@@ -2,7 +2,7 @@
 
 Every run writes one `data.json`. It is the single source for the run. `scripts/build.mjs` checks it, renders `report.md` from it, and feeds the dashboard. Never write `report.md` or `dashboard/data.js` by hand.
 
-Plain JSON, UTF-8. No em dashes or en dashes in any text. Dates are local wall clock values with no time zone: `YYYY-MM-DD`, or `YYYY-MM-DDTHH:MM` when a start time is shown.
+Plain JSON, UTF-8. No em dashes or en dashes in any text. Dates are wall clock values in the person's own time zone, with no zone written: convert an online event to their zone before writing it. `YYYY-MM-DD`, or `YYYY-MM-DDTHH:MM` when a start time is shown.
 
 ## Top level
 
@@ -38,6 +38,8 @@ The same object is saved on its own as `profile.json` in the folder, so later ru
   "price": "about $3,500, plus a $150 a month care plan",
   "want": "Local service businesses, and the agencies and photographers who already serve them",
   "hours_per_week": 3,
+  "timezone": "America/Chicago",
+  "intro": "I build websites for local service businesses in Austin.",
   "limits": ["No Facebook groups"],
   "already_in": [],
   "assumptions": "One line, or omit",
@@ -45,7 +47,7 @@ The same object is saved on its own as `profile.json` in the folder, so later ru
 }
 ```
 
-`allow_own_browser` records whether they said yes to research in their own browser, so the scheduled refresh can follow it. `country` sets the date format (US style for the United States and Canada, day first elsewhere).
+`timezone` is the IANA zone of where they are based (read it from the computer, or from their city); the dashboard adds it to Google Calendar links. `intro` is the one line they say when they meet someone, written to the rules in `reference/outreach.md`; it appears on event calendar entries and prep cards. `allow_own_browser` records whether they said yes to research in their own browser, so the scheduled refresh can follow it. `country` sets the date format (US style for the United States and Canada, day first elsewhere).
 
 ## A find
 
@@ -59,14 +61,15 @@ The same object is saved on its own as `profile.json` in the folder, so later ru
   "why": "One sentence, plain words: why this fits this person",
   "score": { "audience": 0-4, "reach": 0-3, "momentum": 0-3 },
   "source": { "url": "https://...", "title": "Page title", "seen": "What you saw on that page, with the date you saw it if relevant" },
-  "contact": { "via": "Contact form on their site", "url": "https://... optional" },
-  "event": { "start": "2026-11-05T18:00", "end": "optional", "venue": "Name, area, or Online", "price": "Free", "format": "In person", "recurring": "optional: Every Friday" },
+  "contact": { "via": "Contact form on their site", "url": "https://... optional", "email": "optional: a public business address shown on their own site, never a personal one" },
+  "event": { "start": "2026-11-05T18:00", "end": "optional", "venue": "Name, area, or Online", "price": "Free", "format": "In person", "address": "optional: street address for directions", "recurring": "optional: Every Friday" },
   "community": { "platform": "Skool | Reddit | Discord | Slack | Forum | Newsletter | Meetup | Club", "members": "as shown on the page", "last_activity": "Post on 26 Oct", "rules": "What the rules say about introductions and promotion", "cost": "Free | Paid", "cadence": "Meets weekly" },
   "recommend_join": true,
   "tags": ["optional", "short", "labels"],
   "drafts": {
     "first_message": "For people and businesses",
     "if_reply": "One line for step two",
+    "nudge": "One short message if there is no reply after a few days",
     "starter": "Conversation starter at an event",
     "follow_up": "Next day message after an event",
     "intro_post": "Community introduction post",
@@ -79,6 +82,7 @@ The same object is saved on its own as `profile.json` in the folder, so later ru
 - `type` `person` and `business` show under connections. `event` under events. `community` is online. `group` is a local club, chamber or recurring meetup group to join and keep attending.
 - `recommend_join: true` also lists a community under "Groups and communities to join".
 - `event` is required for events. `start` must be today or later. For a recurring event whose page shows a pattern but no single date, set `start` to the next date that pattern gives, set `recurring` to the pattern, and say in `source.seen` that the date was worked out from the pattern.
+- Write a `nudge` for every person or business with a `first_message`. The dashboard puts it in the follow up reminder.
 - Only include `drafts` keys that apply. Write drafts for every top pick and for every find the plan asks the person to message.
 - Keep `id` stable across runs. If you carry a find forward from an earlier run, reuse the `id` from that run's `data.json`.
 

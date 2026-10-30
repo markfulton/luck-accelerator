@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0, unreleased
+
+Make every find easy to act on.
+
+- Add to Google Calendar and an .ics file for Apple Calendar and Outlook on every event, with the starter and the one line intro in the description and a reminder an hour before.
+- The whole week as one calendar file, each day's moves as a block at a time the person picks.
+- Follow up reminders, a "follow ups waiting on you" list on the overview, and a written `nudge` draft for every first message.
+- Copy the message and open the contact page in one click, open a draft in the email app when a public business address exists, and directions for in person events.
+- A printable prep card for any find, and a spreadsheet export of every find with its status and notes.
+- Profile gains `timezone` and `intro`; finds gain `contact.email` and `event.address`.
+- The skill offers to add events to the person's own calendar when the agent app has a calendar connector, on a yes only.
+
 ## 1.0.0, unreleased
 
 First version.

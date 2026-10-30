@@ -9,5 +9,7 @@
   "hours_per_week": 3,
   "limits": [],
   "already_in": [],
-  "assumptions": "Austin includes the close suburbs, because Cedar Park had the most new business openings on any calendar I read. Plan minutes count time on site or at the keyboard, not driving. Individual names are left out of this example, so drafts greet people with \"Hi there\"."
+  "assumptions": "Austin includes the close suburbs, because Cedar Park had the most new business openings on any calendar I read. Plan minutes count time on site or at the keyboard, not driving. Individual names are left out of this example, so drafts greet people with \"Hi there\".",
+  "timezone": "America/Chicago",
+  "intro": "I build websites for restaurants, salons and contractors around Austin."
 }

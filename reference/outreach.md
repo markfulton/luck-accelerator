@@ -23,6 +23,23 @@ That is the whole message. Aim for 150 to 300 characters. Hard limit 400.
 
 Write one line for step two, used only if they reply: something that continues their answer and offers one small, useful thing (an introduction, a resource, a seat at an event), still with no pitch. The user writes the rest of the conversation themselves.
 
+## If there is no reply
+
+Write one `nudge` per first message, for after a few days of silence:
+
+- One or two short sentences, warm, no guilt. Never "just following up", "bumping this", "circling back" or "did you see my message".
+- Bring one small new thing (something you noticed since, a congratulations, a simpler question) or make the original question easier to answer.
+- Still no link, no offer, no pitch. One question at most.
+- Under 250 characters. One nudge only. If that gets no reply, the find moves on.
+
+## Your one line intro
+
+The `intro` in the profile is what the person says when someone asks "what do you do?" at an event:
+
+- One sentence, first person, under 120 characters: who you help and with what, in plain words.
+- No price, no "I help businesses scale", no jargon, no hype words.
+- Example: "I build websites for restaurants and salons around Austin."
+
 ## At an event
 
 - One conversation starter that is about the other person, not about the user. "What brought you here tonight?" is fine. A starter tied to the event's topic is better.

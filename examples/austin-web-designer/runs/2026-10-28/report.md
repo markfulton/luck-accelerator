@@ -11,6 +11,7 @@ Run on 2026-10-28. Everything here is a draft. Nothing has been sent, joined or 
 - **Offer:** Small business website build, roughly $3,500, plus a $150 a month care plan
 - **Who you want more of:** Local service businesses (restaurants, salons, clinics, home services, contractors) and referral partners who already serve them (marketing agencies without an in house developer, photographers, bookkeepers, coworking spaces)
 - **Time each week:** 3 hours
+- **Your one line intro:** I build websites for restaurants, salons and contractors around Austin.
 - **Assumptions I made:** Austin includes the close suburbs, because Cedar Park had the most new business openings on any calendar I read. Plan minutes count time on site or at the keyboard, not driving. Individual names are left out of this example, so drafts greet people with "Hi there".
 
 A week built around two rooms: the free South Austin Power Hour on Friday and the free SCORE workshop next Tuesday. Around them sit three first messages, one to a hospitality PR team that could send you restaurant clients and two you can say in person, plus one useful answer on Reddit. Cedar Park's November ribbon cuttings are lined up for the week after.
@@ -108,6 +109,10 @@ A week built around two rooms: the free South Austin Power Hour on Friday and th
 > Hi there, congrats on the ribbon cutting today. Opening a salon on Whitestone with the whole chamber turning out is a great start. How have the first few weeks of bookings been?
 
 - **If they reply:** Glad to hear it. If you want to meet more owners nearby, the chamber's luncheon on Nov 11 is a good room, and I'm happy to introduce you to a few people there.
+- **If there is no reply after a few days:**
+
+> Hi again, hope the opening weeks are treating you well. Which service is booking up fastest so far?
+
 
 ### Resplendent Agency
 
@@ -117,6 +122,10 @@ A week built around two rooms: the free South Austin Power Hour on Friday and th
 > Hi there, I enjoyed your post "Grand Openings Are a One-Time Window." It matches what I keep seeing with new spots around Austin. Are you taking on many opening campaigns this fall?
 
 - **If they reply:** That makes sense. I meet a lot of owners in the weeks before they open, so when one needs a PR team I'm happy to pass your name along.
+- **If there is no reply after a few days:**
+
+> Hi again, a couple more Austin openings popped up this week and I thought of your post. Is fall your busiest stretch for opening campaigns?
+
 
 ### Pinky's Smash & Sip
 
@@ -126,6 +135,10 @@ A week built around two rooms: the free South Austin Power Hour on Friday and th
 > Hi there, I came in for the smash burger everyone nearby is talking about. "Smash Burgers & Dirty Sodas" is a name that sells itself. How have the first couple of months on Brodie been?
 
 - **If they reply:** Love hearing that. I'll bring a couple of neighbors in next week.
+- **If there is no reply after a few days:**
+
+> Hi again, the dirty soda was as good as the burger. Are weekends your busiest time on Brodie so far?
+
 
 ### Health, Fitness, Beauty & Wellness Business Networking Mixer
 

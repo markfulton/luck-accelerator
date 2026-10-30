@@ -40,6 +40,7 @@ Write `runs/<today>/data.json` following `templates/data-schema.md`, with `run.m
 
 - `summary` speaks to their progress in one plain sentence first, then the week ahead. "You messaged two partners and went to one run last week. This week has a new coworking social and two fresh partner leads."
 - At least one insight looks back: what worked, what is waiting on a reply, what to follow up.
+- Every new person or business gets a `nudge` draft, as in `SKILL.md`. Never add anything to a calendar in this run; new events go in the summary for the person to add from the dashboard.
 - `top_moves` include a follow up for anything in `moved` with no reply after a week, when there is one.
 - `theme.kicker` can mention their streak when progress shows moves in consecutive weeks: "Week 3 of your lucky streak".
 - The plan starts today and runs seven days.

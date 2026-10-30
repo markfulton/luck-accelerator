@@ -542,3 +542,34 @@ html, body { overflow-x: clip; }
   .column .empty { padding: 10px 6px 14px; display: flex; align-items: center; gap: 10px; text-align: left; }
   .column .empty img { width: 36px; height: 36px; margin: 0; }
 }
+
+/* Acting on a find, 2026-10-30: calendar, reminders, directions, prep cards */
+.act-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.act { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--edge-strong); background: var(--paper); color: var(--ink); font-size: 13px; font-weight: 650; cursor: pointer; text-decoration: none; line-height: 1.2; }
+.act:hover { background: var(--clover-soft); text-decoration: none; }
+.act svg { width: 15px; height: 15px; flex: none; color: var(--clover); }
+.act.copied { background: var(--clover); color: #fff; border-color: var(--clover); }
+.act.copied svg { color: #fff; }
+.due-card { border-left: 3px solid var(--gold); }
+.due-card .rank-list li { align-items: center; }
+.due-card .dot { width: 10px; height: 10px; }
+.cal-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); }
+.cal-bar > span:first-child { display: inline-flex; align-items: center; gap: 8px; }
+.cal-bar svg { width: 16px; height: 16px; color: var(--clover); }
+.cal-bar .select { padding: 6px 30px 6px 12px; font-size: 13px; }
+.cal-note { flex-basis: 100%; font-size: 12.5px; }
+#print-card { display: none; }
+@media print {
+  body.print-mode > *:not(#print-card) { display: none !important; }
+  body.print-mode::before { display: none; }
+  body.print-mode { background: #fff; color: #111; padding: 0; }
+  body.print-mode #print-card { display: block; font: 12pt/1.5 var(--font); color: #111; padding: 8mm 10mm; }
+  #print-card h1 { font: 700 22pt/1.2 var(--font-display); margin: 4px 0 14px; }
+  #print-card h2 { font-size: 12pt; margin: 16px 0 4px; text-transform: uppercase; letter-spacing: 0.06em; color: #1E7A4C; }
+  #print-card p { margin: 0; white-space: pre-wrap; }
+  #print-card dl { display: grid; grid-template-columns: 34mm 1fr; gap: 4px 10px; margin: 0; }
+  #print-card dt { color: #555; }
+  #print-card dd { margin: 0; word-break: break-word; }
+  #print-card .pc-kicker { color: #7A5A0F; font-size: 9.5pt; letter-spacing: 0.08em; text-transform: uppercase; }
+  #print-card .pc-foot { margin-top: 18px; color: #555; font-size: 9.5pt; }
+}

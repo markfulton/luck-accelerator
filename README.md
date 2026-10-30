@@ -42,7 +42,11 @@ Everything lands in a dashboard that lives on your computer, shaped around your 
 - **Your luck map.** Every find on one chart. The closer to the centre, the better the fit. New finds glow.
 - **Top three moves** for the week, and a day by day plan with real event dates and a checkbox for every action.
 - **Opportunities** you can filter, search and sort, each with why it fits, where it came from and how to reach them.
-- **Drafts ready to copy.** One click copies a message. You make it yours and send it yourself.
+- **Drafts ready to copy.** One click copies a message and opens their contact page. You make it yours and send it yourself.
+- **Your calendar, done for you.** Add any event to Google Calendar in one click, or download it for Apple Calendar and Outlook. Put the whole week in your calendar, with a daily block for your moves.
+- **Follow ups that come to you.** Set a reminder for any find, get a friendly nudge already written, and see every follow up that is due the moment you open the dashboard.
+- **Prep cards and directions.** Print a one page card before an event, with your intro line and your opener, and get directions in one tap.
+- **Export to a spreadsheet** whenever you want your finds in Google Sheets, Excel or a CRM.
 - **A pipeline** from saved, to messaged, to replied, to met.
 - **Luck you earn.** A move is worth 1, a reply 3, a meeting 5, and a weekly streak keeps you going.
 - **Insights** that spot patterns across your finds, like two partners on the same street or one event that covers three of your top picks.

@@ -12,5 +12,7 @@
     "No events that cost more than £20"
   ],
   "already_in": [],
-  "assumptions": "\"No events over £20\" includes any membership needed to get in. \"No Facebook groups\" means nothing on Facebook at all. Individual names are left out of this example, so drafts greet people by business name or \"Hi there\"."
+  "assumptions": "\"No events over £20\" includes any membership needed to get in. \"No Facebook groups\" means nothing on Facebook at all. Individual names are left out of this example, so drafts greet people by business name or \"Hi there\".",
+  "timezone": "Europe/London",
+  "intro": "I coach strength for busy professionals in central Manchester."
 }

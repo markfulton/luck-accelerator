@@ -70,6 +70,8 @@ Only use what clearly describes them. A guess is not knowledge.
 
 If you know nothing yet, ask the five needed questions in one numbered message, with the two optional ones marked optional. If they say "just go", use what you have and sensible defaults, and record the defaults as assumptions.
 
+Two more fields you fill yourself, without asking: `timezone` (read it from the computer, or from their city) and `intro`, their one line answer to "what do you do?", written to `reference/outreach.md`. Show the intro in the confirmation message so they can change it.
+
 Never run a second round of questions. Save the profile to `profile.json` in the folder, in the `profile` shape from `templates/data-schema.md`. On later runs, read it, show a two line summary, and ask whether anything changed.
 
 ## 3. Set up the folder
@@ -139,7 +141,7 @@ Break ties by the sooner event, then the stronger momentum. Write one plain sent
 
 Follow `reference/outreach.md` exactly. Write drafts for the top three in each section **and** for every find the plan asks them to message:
 
-- people and businesses: `first_message`, `if_reply`, and `contact.via` (a contact page, a public business email, or "in person at <event>"). If the only route is in person, write a `starter` instead of a first message;
+- people and businesses: `first_message`, `if_reply`, a `nudge` for no reply, and `contact.via` (plus `contact.email` only when their own site shows a public business address) (a contact page, a public business email, or "in person at <event>"). If the only route is in person, write a `starter` instead of a first message;
 - events: `starter` and `follow_up`;
 - communities: `intro_post`, or `helpful_answer` when the rules ban self promotion, plus a `first_comment` idea.
 
@@ -173,6 +175,12 @@ Seven days starting today. Fit it inside their weekly hours and give each day it
 
 If your app cannot run scripts at all, open each link in a browser or a page read tool, check the drafts by eye against `reference/outreach.md`, and tell the person the dashboard needs an app that can run scripts.
 
+## 9b. Make it easy to act
+
+The dashboard turns every find into a next step: Add to Google Calendar and an .ics file for Apple and Outlook on every event, directions for in person events, "copy message, open contact page", follow up reminders, a printable prep card, the whole week as one calendar file, a list of follow ups that are due, and a spreadsheet export. Tell the person these exist in one line at hand over.
+
+**If your app has a calendar connector** (Google Calendar, Outlook), offer once: "Want me to put this week's events and a daily block for your moves in your calendar?" Only on a yes, add them to the person's own calendar, with the event details and their starter in the description. Never invite anyone else, never RSVP or register, never change an existing event. The scheduled refresh never writes to a calendar; it lists new events for them to add.
+
 ## 10. Save the run
 
 If the folder is a git repository, commit everything with the message `Run <today>: <N> finds, <M> new`.
@@ -201,6 +209,7 @@ Tell the person, briefly:
 - their top three moves this week, one line each;
 - everything is a draft and nothing has been sent, joined or posted;
 - the "Your move" buttons in each find track their progress and earn luck, which the next run reads;
+- every event has an Add to calendar button, the week view puts the whole week in their calendar, and the overview lists follow ups as they come due;
 - the schedule, if they set one.
 
 Do not paste the whole report into the chat. Do not add anything about other products or services.

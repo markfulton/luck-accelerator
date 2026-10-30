@@ -12,7 +12,7 @@ import fs from "node:fs";
 // Built from code points so this file never carries either dash itself.
 const DASHES = new RegExp("[" + String.fromCharCode(0x2013, 0x2014) + "]");
 const HYPE = /\b(revolutionary|game[ -]?changer|10x|unlock|supercharge|synergy|crush(ing)? it|skyrocket|next[ -]level)\b/i;
-const PITCH = /(pick your brain|quick call|hop on a call|jump on a call|\b15 minutes\b|let me know if you('| a)re interested|\bdm me\b|book a call|my portfolio|i help (businesses|companies|people) like)/i;
+const PITCH = /(pick your brain|quick call|hop on a call|jump on a call|\b15 minutes\b|let me know if you('| a)re interested|\bdm me\b|book a call|my portfolio|just following up|circling back|bumping this|did you see my message|i help (businesses|companies|people) like)/i;
 const LINK = /(https?:\/\/|www\.|\b[a-z0-9-]+\.(com|co\.uk|io|net|org|me)\b\/?)/i;
 const HASHTAG = /(^|\s)#[A-Za-z][A-Za-z0-9_]+/;
 

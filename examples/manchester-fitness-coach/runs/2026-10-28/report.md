@@ -12,6 +12,7 @@ Run on 2026-10-28. Everything here is a draft. Nothing has been sent, joined or 
 - **Who you want more of:** Office workers, founders and parents getting back to training, plus referral partners: physio and sports massage clinics, nutritionists, corporate wellness leads, coworking spaces, running clubs
 - **Time each week:** 4 hours
 - **Limits:** No Facebook groups; No events that cost more than £20
+- **Your one line intro:** I coach strength for busy professionals in central Manchester.
 - **Assumptions I made:** "No events over £20" includes any membership needed to get in. "No Facebook groups" means nothing on Facebook at all. Individual names are left out of this example, so drafts greet people by business name or "Hi there".
 
 A running week. Three free or cheap runs sit around your working hours, and each is full of the desk bound professionals you coach. Two partner emails and one Slack introduction cover the referral side, and Reddit is for being useful, not for finding clients.
@@ -125,6 +126,10 @@ A running week. Three free or cheap runs sit around your working hours, and each
 > Hi there, "Two events. One mission. Workforce Wellbeing for ALL." is a great line, and 1,000 people at Heaton Park in year one is quite a start. Is the 2027 Run & Walk open to very small local businesses as well as the big employers?
 
 - **If they reply:** Thank them, and offer to share a simple 8 week walk to 5K plan their smaller teams could use before May, free.
+- **If there is no reply after a few days:**
+
+> Hi again, hope planning for 2027 is going well. Is there a list I can join to hear when the Run & Walk opens to small businesses?
+
 
 ### Treehouse Hotel Manchester
 
@@ -134,6 +139,10 @@ A running week. Three free or cheap runs sit around your working hours, and each
 > Hi, first time at Root & Run. That warm up was proper, not the usual two leg swings and off. I read the club only started in the summer. How many regulars turn up most weeks now?
 
 - **If they reply:** Say you coach strength in town and would happily lead a ten minute post run mobility block one week if they ever want a guest.
+- **If there is no reply after a few days:**
+
+> Hi again, back for another Root & Run this week and the group keeps growing. Is the Wednesday run open to drop ins all winter?
+
 
 ### Founders Coffee Club (Coworking & Nibbles)
 
@@ -170,6 +179,10 @@ A running week. Three free or cheap runs sit around your working hours, and each
 > Hi Altius team, I like that you treat people at work as well as in clinic, especially the packages for folks who sit all day. I coach strength in central Manchester. Do most of your Bloc patients come from the offices around Marble Street?
 
 - **If they reply:** Offer to send them clients who need hands on treatment, and ask who to talk to about passing patients your way once rehab ends.
+- **If there is no reply after a few days:**
+
+> Hi again, hope the week at Bloc is going well. Do you ever point patients towards strength coaching once their rehab is done?
+
 
 ### Fix
 
@@ -179,6 +192,10 @@ A running week. Three free or cheap runs sit around your working hours, and each
 > Hi Fix team, "Come get your Fix" made me smile, and a proper sauna you can walk to from the office is rare in town. I coach strength nearby. Do many of your regulars come to you straight from lifting or running?
 
 - **If they reply:** Offer to point your clients to their recovery sessions, and ask whether they would ever host a small lift then sauna morning.
+- **If there is no reply after a few days:**
+
+> Hi again, I finally tried the sauna after a Thursday session. Is the ice bath busiest early in the morning or after work?
+
 
 ### Allpress fortnightly 5K run
 

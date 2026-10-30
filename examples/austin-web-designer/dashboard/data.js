@@ -1,7 +1,7 @@
 // Written by build.mjs. Rebuilt on every run, do not edit by hand.
 window.LUCK_DATA = {
-  "generated": "2026-10-28T06:45:28.334Z",
-  "templateVersion": "1.0.0",
+  "generated": "2026-10-30T00:58:33.203Z",
+  "templateVersion": "1.1.0",
   "locale": "en-US",
   "current": {
     "schema": 1,
@@ -21,7 +21,9 @@ window.LUCK_DATA = {
       "hours_per_week": 3,
       "limits": [],
       "already_in": [],
-      "assumptions": "Austin includes the close suburbs, because Cedar Park had the most new business openings on any calendar I read. Plan minutes count time on site or at the keyboard, not driving. Individual names are left out of this example, so drafts greet people with \"Hi there\"."
+      "assumptions": "Austin includes the close suburbs, because Cedar Park had the most new business openings on any calendar I read. Plan minutes count time on site or at the keyboard, not driving. Individual names are left out of this example, so drafts greet people with \"Hi there\".",
+      "timezone": "America/Chicago",
+      "intro": "I build websites for restaurants, salons and contractors around Austin."
     },
     "summary": "A week built around two rooms: the free South Austin Power Hour on Friday and the free SCORE workshop next Tuesday. Around them sit three first messages, one to a hospitality PR team that could send you restaurant clients and two you can say in person, plus one useful answer on Reddit. Cedar Park's November ribbon cuttings are lined up for the week after.",
     "top_moves": [
@@ -102,7 +104,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi there, congrats on the ribbon cutting today. Opening a salon on Whitestone with the whole chamber turning out is a great start. How have the first few weeks of bookings been?",
-          "if_reply": "Glad to hear it. If you want to meet more owners nearby, the chamber's luncheon on Nov 11 is a good room, and I'm happy to introduce you to a few people there."
+          "if_reply": "Glad to hear it. If you want to meet more owners nearby, the chamber's luncheon on Nov 11 is a good room, and I'm happy to introduce you to a few people there.",
+          "nudge": "Hi again, hope the opening weeks are treating you well. Which service is booking up fastest so far?"
         },
         "id": "connections:adorn-nails-and-spa@business.cedarparkchamber.org",
         "category": "connections",
@@ -134,7 +137,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi there, I enjoyed your post \"Grand Openings Are a One-Time Window.\" It matches what I keep seeing with new spots around Austin. Are you taking on many opening campaigns this fall?",
-          "if_reply": "That makes sense. I meet a lot of owners in the weeks before they open, so when one needs a PR team I'm happy to pass your name along."
+          "if_reply": "That makes sense. I meet a lot of owners in the weeks before they open, so when one needs a PR team I'm happy to pass your name along.",
+          "nudge": "Hi again, a couple more Austin openings popped up this week and I thought of your post. Is fall your busiest stretch for opening campaigns?"
         },
         "id": "connections:resplendent-agency@resplendent.agency",
         "category": "connections",
@@ -168,7 +172,8 @@ window.LUCK_DATA = {
         ],
         "drafts": {
           "first_message": "Hi there, I came in for the smash burger everyone nearby is talking about. \"Smash Burgers & Dirty Sodas\" is a name that sells itself. How have the first couple of months on Brodie been?",
-          "if_reply": "Love hearing that. I'll bring a couple of neighbors in next week."
+          "if_reply": "Love hearing that. I'll bring a couple of neighbors in next week.",
+          "nudge": "Hi again, the dirty soda was as good as the burger. Are weekends your busiest time on Brodie so far?"
         },
         "id": "connections:pinky-s-smash-and-sip@communityimpact.com",
         "category": "connections",

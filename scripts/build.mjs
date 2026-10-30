@@ -44,6 +44,12 @@ export function validate(d) {
   need(p.niche, "profile.niche is required");
   need(p.city || p.online_only, "profile.city is required unless profile.online_only is true");
   need(typeof p.hours_per_week === "number" && p.hours_per_week > 0, "profile.hours_per_week must be a number");
+  if (p.timezone !== undefined) {
+    let tzOk = typeof p.timezone === "string";
+    try { if (tzOk) new Intl.DateTimeFormat("en", { timeZone: p.timezone }); } catch { tzOk = false; }
+    need(tzOk, "profile.timezone must be an IANA zone such as America/Chicago");
+  }
+  if (p.intro !== undefined) need(typeof p.intro === "string" && p.intro.length <= 200, "profile.intro must be one line of text, 200 characters at most");
   need(Array.isArray(d.finds) && d.finds.length > 0, "finds must be a non empty array");
   const ids = new Set();
   (d.finds || []).forEach((f, i) => {
@@ -59,6 +65,7 @@ export function validate(d) {
     need(f.source && isUrl(f.source.url), at + ": source.url must be a full http(s) link");
     need(f.source && f.source.seen, at + ": source.seen (what you saw on that page) is required");
     if (f.contact && f.contact.url) need(isUrl(f.contact.url), at + ": contact.url must be a full link");
+    if (f.contact && f.contact.email !== undefined) need(typeof f.contact.email === "string" && /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(f.contact.email), at + ": contact.email must be a public business email address");
     if (f.type === "event") {
       const e = f.event || {};
       need(DATETIME.test(e.start || ""), at + ": event.start must be YYYY-MM-DD or YYYY-MM-DDTHH:MM");
@@ -143,6 +150,7 @@ export function renderReport(d) {
   if (p.want) L.push("- **Who you want more of:** " + p.want);
   L.push("- **Time each week:** " + p.hours_per_week + " hours");
   if (p.limits && p.limits.length) L.push("- **Limits:** " + p.limits.join("; "));
+  if (p.intro) L.push("- **Your one line intro:** " + p.intro);
   L.push("- **Assumptions I made:** " + (p.assumptions || "none"), "");
   if (d.summary) L.push(d.summary, "");
   if (d.top_moves && d.top_moves.length) {
@@ -194,10 +202,11 @@ export function renderReport(d) {
     drafted.forEach((f) => {
       const x = f.drafts;
       L.push("### " + f.name, "");
-      if (f.contact && f.contact.via) L.push("- **Send via:** " + f.contact.via + (f.contact.url ? " ([link](" + f.contact.url + "))" : ""));
+      if (f.contact && f.contact.via) L.push("- **Send via:** " + f.contact.via + (f.contact.url ? " ([link](" + f.contact.url + "))" : "") + (f.contact.email ? ", " + f.contact.email : ""));
       if (f.community && f.community.rules) L.push("- **Rules I saw:** " + f.community.rules);
       if (x.first_message) L.push("- **First message:**", "", quote(x.first_message), "");
       if (x.if_reply) L.push("- **If they reply:** " + x.if_reply);
+      if (x.nudge) L.push("- **If there is no reply after a few days:**", "", quote(x.nudge), "");
       if (x.starter) L.push("- **Conversation starter:** \"" + x.starter.replace(/^"|"$/g, "") + "\"");
       if (x.follow_up) L.push("- **Next day follow up:**", "", quote(x.follow_up), "");
       if (x.intro_post) L.push("- **Introduction post:**", "", quote(x.intro_post), "");
@@ -308,6 +317,11 @@ function selftest() {
   ok("slug", slug("Café & Co. Ltd!") === "cafe-and-co-ltd");
   ok("id", findId({ type: "business", name: "Alpha Studio", source: { url: "https://www.alpha.example/x" } }) === "connections:alpha-studio@alpha.example");
   ok("valid sample", validate(sample()).length === 0);
+  const tzBad = sample(); tzBad.profile.timezone = "Mars/Olympus";
+  ok("catches a bad zone", validate(tzBad).length === 1);
+  const tzGood = sample(); tzGood.profile.timezone = "Europe/London"; tzGood.profile.intro = "I coach busy people to lift."; tzGood.finds[0].contact = { via: "Email", email: "hello@alpha.example" }; tzGood.finds[0].drafts.nudge = "Hi again, hope the week is going well.";
+  ok("accepts zone, intro, email and nudge", validate(tzGood).length === 0);
+  ok("report carries the nudge", renderReport(normalize(tzGood)).includes("> Hi again, hope the week is going well."));
   const bad = sample(); bad.finds[0].score.audience = 7; bad.finds[1].event.start = "2026-01-01"; bad.plan[0].actions[0].find = "Nobody";
   ok("catches three problems", validate(bad).length === 3);
   const n = normalize(sample());
