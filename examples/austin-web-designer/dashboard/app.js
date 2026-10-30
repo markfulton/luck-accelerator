@@ -464,6 +464,16 @@
       '<div class="find-foot"><div class="parts"><div class="part">Audience<div class="pips">' + pips(f.score.audience, 4) + '</div></div><div class="part">Reach<div class="pips">' + pips(f.score.reach, 3) + '</div></div><div class="part">Momentum<div class="pips">' + pips(f.score.momentum, 3) + '</div></div></div><span class="status-pill ' + st + '">' + esc(statusWord(f, st)) + "</span></div></article>";
   }
 
+  /* One quiet next step, shown only once a find has replied or met, and hidden for good when dismissed. */
+  const CLUB = "https://club.reinventing.ai/";
+  const clubLink = (path, content) => CLUB + path + (path.includes("?") ? "&" : "?") + "utm_source=luck-accelerator&utm_medium=dashboard&utm_campaign=luck-accelerator&utm_content=" + content;
+  function leadsCard() {
+    if (store.get("luck.hideLeads") === "1") return "";
+    if (!Object.values(P.items).some((v) => v.status === "replied" || v.status === "met")) return "";
+    return '<div class="leads-card"><img src="assets/coin.webp" alt="" width="44" height="44"><div class="leads-text"><b>Want businesses that are already looking for help?</b><span>Hot Leads in the Agent Ops Club.</span></div>' +
+      '<a class="btn primary small" href="' + clubLink("register?next=%2Fmembers%2Fleads", "pipeline-hot-leads") + '" target="_blank" rel="noopener">See Hot Leads' + ICON.arrow + '</a><button class="leads-hide" data-hide-leads aria-label="Hide this card">' + ICON.close + "</button></div>";
+  }
+
   function pipeline() {
     const col = (s) => {
       const list = all.filter((f) => statusOf(f.id) === s).sort((a, b) => b.total - a.total);
@@ -478,7 +488,7 @@
         }).join("") : '<div class="empty"><img src="assets/horseshoe.webp" alt=""><div>' + (s === "saved" ? "Save finds you like from Opportunities." : "Nothing here yet.") + "</div></div>") + "</div>";
     };
     const passed = all.filter((f) => statusOf(f.id) === "passed");
-    return '<div class="section"><div class="section-head"><h2>Pipeline</h2><p>Move each find along as things happen</p></div><div class="board">' + STAGES.map(col).join("") + "</div>" +
+    return '<div class="section"><div class="section-head"><h2>Pipeline</h2><p>Move each find along as things happen</p></div>' + leadsCard() + '<div class="board">' + STAGES.map(col).join("") + "</div>" +
       (passed.length ? '<div class="passed-row">Not for me: ' + passed.map((f) => esc(f.name) + ' <button class="btn small ghost" data-status="open" data-id="' + esc(f.id) + '">Restore</button>').join(" ") + "</div>" : "") + "</div>";
   }
 
@@ -677,7 +687,8 @@
     const c = cur.checks || {};
     $("#footer").innerHTML = '<div class="left">' + ICON.hand + "<span>Everything here lives in a folder on your computer. Nothing on this page is sent anywhere, and every action is yours to take.</span></div>" +
       '<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span>' + esc(c.links || "") + '</span><button class="btn small" data-csv>' + ICON.download + "Export to spreadsheet</button><button class=\"btn small\" data-export>" + ICON.download + "Save progress file</button><span>Template " + esc(D.templateVersion || "") + "</span></div>" +
-      '<a class="brandline" href="https://club.reinventing.ai/?utm_source=luck-accelerator&utm_medium=dashboard&utm_campaign=luck-accelerator" target="_blank" rel="noopener"><img src="assets/reinventing-ai.png" alt="" width="22" height="22"><span>Copyright 2026 Mark Fulton - Reinventing.AI Solutions</span></a>';
+      '<div class="foot-bottom"><a class="brandline" href="https://club.reinventing.ai/?utm_source=luck-accelerator&utm_medium=dashboard&utm_campaign=luck-accelerator" target="_blank" rel="noopener"><img src="assets/reinventing-ai.png" alt="" width="22" height="22"><span>Copyright 2026 Mark Fulton - Reinventing.AI Solutions</span></a>' +
+      '<a class="club-cta" href="' + clubLink("register", "footer-join") + '" target="_blank" rel="noopener"><img src="assets/reinventing-ai.png" alt="" width="40" height="40"><span class="club-cta-text"><b>Join the Agent Ops Club</b><span>Free account. AI Employees, live sessions and more free tools.</span></span><span class="club-cta-btn">Join free' + ICON.arrow + "</span></a></div>";
   }
 
   document.addEventListener("click", (ev) => {
@@ -694,6 +705,7 @@
     if (t.closest("[data-fresh]")) { F.fresh = !F.fresh; render(false); return; }
     if (t.closest("[data-export]")) { exportProgress(); return; }
     if (t.closest("[data-csv]")) { exportCsv(); return; }
+    if (t.closest("[data-hide-leads]")) { store.set("luck.hideLeads", "1"); const card = $(".leads-card"); if (card) card.remove(); return; }
     const weekCal = t.closest("[data-week-ics]");
     if (weekCal) { const h = Number(($("#block-hour") || {}).value || 9); downloadFile("luck-week-" + runDate + ".ics", icsFile(weekEntries(h)), "text/calendar"); toast("Saved your week. Open the file to add it to your calendar."); return; }
     const actBtn = t.closest("[data-act]");

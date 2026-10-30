@@ -573,3 +573,38 @@ html, body { overflow-x: clip; }
   #print-card .pc-kicker { color: #7A5A0F; font-size: 9.5pt; letter-spacing: 0.08em; text-transform: uppercase; }
   #print-card .pc-foot { margin-top: 18px; color: #555; font-size: 9.5pt; }
 }
+
+/* Hot Leads card: Pipeline view, after the first reply */
+.leads-card { display: flex; align-items: center; gap: 14px; margin: 0 0 16px; padding: 14px 16px; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--gold-soft), var(--card-solid) 70%); border: 1px solid var(--edge-strong); box-shadow: var(--shadow); }
+.leads-card img { width: 44px; height: 44px; border-radius: 50%; flex: none; }
+.leads-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.leads-text b { color: var(--ink); font-size: 15px; }
+.leads-text span { color: var(--ink-2); font-size: 13.5px; }
+.leads-card .btn svg { width: 15px; height: 15px; }
+.leads-hide { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
+.leads-hide:hover { background: var(--paper-deep); color: var(--ink); }
+.leads-hide svg { width: 16px; height: 16px; }
+
+/* Footer: copyright on the left, the club invitation bottom right */
+.foot-bottom { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; padding-top: 8px; }
+.foot-bottom .brandline { flex-basis: auto; }
+.club-cta { display: inline-flex; align-items: center; gap: 14px; padding: 12px 12px 12px 14px; border-radius: 18px; background: linear-gradient(135deg, #13583A, #1E7A4C 55%, #2C8C5A); color: #F6F1E4; box-shadow: 0 12px 30px -14px rgba(19, 88, 58, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12); max-width: 460px; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.club-cta:hover { text-decoration: none; transform: translateY(-1px); box-shadow: 0 16px 34px -14px rgba(19, 88, 58, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.16); }
+.club-cta img { width: 40px; height: 40px; border-radius: 10px; flex: none; background: #fff; }
+.club-cta-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.club-cta-text b { font-size: 15px; color: #fff; letter-spacing: -0.01em; }
+.club-cta-text span { font-size: 12.5px; color: rgba(246, 241, 228, 0.82); line-height: 1.35; }
+.club-cta-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 999px; background: linear-gradient(180deg, #F0CF7E, #D9A93A); color: #2A1E05; font-weight: 750; font-size: 13.5px; white-space: nowrap; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5); }
+.club-cta-btn svg { width: 15px; height: 15px; }
+:root[data-theme="dark"] .club-cta { background: linear-gradient(135deg, #0F3F29, #17633E 55%, #1E7A4C); border: 1px solid rgba(121, 212, 162, 0.22); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .club-cta { background: linear-gradient(135deg, #0F3F29, #17633E 55%, #1E7A4C); border: 1px solid rgba(121, 212, 162, 0.22); } }
+@media (max-width: 640px) {
+  .leads-card { display: grid; grid-template-columns: 44px minmax(0, 1fr) 30px; align-items: start; gap: 12px; }
+  .leads-card img { grid-column: 1; grid-row: 1; }
+  .leads-text { grid-column: 2; grid-row: 1; }
+  .leads-hide { grid-column: 3; grid-row: 1; }
+  .leads-card .btn { grid-column: 1 / -1; grid-row: 2; justify-content: center; }
+  .foot-bottom { flex-direction: column-reverse; align-items: stretch; }
+  .club-cta { max-width: none; }
+}
+@media print { .leads-card, .club-cta { display: none; } }

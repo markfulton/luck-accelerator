@@ -11,6 +11,7 @@ Make every find easy to act on.
 - A printable prep card for any find, and a spreadsheet export of every find with its status and notes.
 - Profile gains `timezone` and `intro`; finds gain `contact.email` and `event.address`.
 - The skill offers to add events to the person's own calendar when the agent app has a calendar connector, on a yes only.
+- Dashboard 1.1.2: once a find has replied, the Pipeline view shows one card about Hot Leads in the Agent Ops Club, which can be hidden for good, and the footer carries an invitation to a free club account. Neither one sends anything.
 
 ## 1.0.0, unreleased
 
