@@ -12,4 +12,5 @@ jobs:
       - run: node scripts/copy-check.mjs --selftest
       - run: node scripts/build.mjs --selftest
       - run: node dashboard/serve.mjs --selftest
+      - run: node scripts/shortcut.mjs --selftest
       - run: node .github/scripts/no-dashes.mjs

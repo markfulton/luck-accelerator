@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0, unreleased
+
+A reason to open it every day.
+
+- A rotating quote on luck, agency and showing up on the overview: 41 lines, each with its author and source, disputed ones marked "Attributed to". A new one on every visit and every 45 seconds, or with the arrow. Add your own in `custom.js`.
+- A Luck Dashboard shortcut on the desktop (`scripts/shortcut.mjs`), on Windows, macOS and Linux. It opens the dashboard, and reuses it when it is already running.
+- The local server answers `/api/whoami` so the shortcut can find a dashboard that is already open.
+
 ## 1.1.0, unreleased
 
 Make every find easy to act on.

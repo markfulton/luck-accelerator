@@ -19,6 +19,7 @@ The skill never uploads, pastes or sends these files anywhere. If your computer 
 - It loads nothing from the internet: no fonts, no scripts, no analytics. Its images ship with it.
 - When your agent opens it, a small server runs on your computer only (address `127.0.0.1`). Nothing outside your computer can reach it. It serves the dashboard and saves your progress to `progress.json`, and nothing else.
 - Opened straight from the file, it saves progress in your browser instead.
+- Your agent adds one shortcut to your desktop that opens the dashboard. It is the only file written outside your `luck-accelerator` folder, and you can delete it any time.
 
 ## What leaves your computer
 

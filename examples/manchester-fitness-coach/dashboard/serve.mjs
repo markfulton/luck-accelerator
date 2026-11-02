@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Serves the Luck Accelerator dashboard on this computer only, and saves progress into the
 // user's folder so the next run can read it.
-//   node serve.mjs [--port 4747] [--open]
+//   node serve.mjs [--port 4747] [--open]   (--open reuses a dashboard already running for this folder)
 //   node serve.mjs --selftest
 // Binds to 127.0.0.1, so nothing outside this computer can reach it. Serves the files next to this
 // script, plus GET and PUT /api/progress, which read and write ../progress.json. No dependencies.
@@ -38,6 +38,7 @@ function handler(port) {
     res.setHeader("x-content-type-options", "nosniff");
     res.setHeader("cache-control", "no-store");
     const url = (req.url || "/").split("?")[0];
+    if (url === "/api/whoami") { res.writeHead(200, { "content-type": "application/json" }).end(JSON.stringify({ app: "luck-accelerator", dir: DIR })); return; }
     if (url === "/api/progress") {
       if (req.method === "GET") {
         fs.readFile(PROGRESS, "utf8", (err, txt) => {
@@ -110,9 +111,26 @@ function selftest() {
   process.stdout.write("serve selftest: PASS\n");
 }
 
+/* The desktop shortcut runs this with --open every time. If this folder's dashboard is already
+   being served on one of the ports start() would try, open that one instead of starting another. */
+async function running(first, count) {
+  for (let port = first; port <= first + count; port++) {
+    try {
+      const r = await fetch("http://127.0.0.1:" + port + "/api/whoami", { signal: AbortSignal.timeout(400) });
+      const j = await r.json();
+      if (j && j.app === "luck-accelerator" && j.dir === DIR) return port;
+    } catch { /* nothing there, or not ours */ }
+  }
+  return 0;
+}
+
 const args = process.argv.slice(2);
 if (args.includes("--selftest")) selftest();
 else {
   const i = args.indexOf("--port");
-  start(i >= 0 ? Number(args[i + 1]) : 4747, 10, args.includes("--open"));
+  const port = i >= 0 ? Number(args[i + 1]) : 4747;
+  const open = args.includes("--open");
+  const live = open ? await running(port, 10) : 0;
+  if (live) { openBrowser("http://127.0.0.1:" + live + "/"); process.stdout.write("Luck Accelerator dashboard already open at http://127.0.0.1:" + live + "/\n"); }
+  else start(port, 10, open);
 }

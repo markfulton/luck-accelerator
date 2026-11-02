@@ -390,8 +390,35 @@
     const kicker = (cur.theme && cur.theme.kicker) || (P0.city ? "Your " + P0.city + " week" : "Your week");
     const banner = MODE === "file" ? '<div class="banner">' + ICON.hand + "<span>Progress is saved in this browser. To keep it in your folder too, ask your agent: <b>open my luck dashboard</b>.</span></div>" : "";
     return '<section class="hero"><div class="hero-art"></div><div class="hero-inner"><span class="kicker">' + ICON.overview.replace("<svg", '<svg width="14" height="14"') + esc(kicker) + "</span><h1>" + headline + '</h1><p class="lede">' + esc(cur.summary || "Here is who to meet, where to show up and what to say. Every move is yours to make.") + '</p><div class="hero-actions"><button class="btn primary" data-go="week">' + ICON.week + "Start this week's moves</button><button class=\"btn\" data-go=\"opportunities\">" + ICON.opportunities + "Browse every find</button></div>" +
-      '<div class="hero-meta"><span>Updated ' + esc(fmt(runDate, { weekday: "long", day: "numeric", month: "long" })) + "</span><span>" + finds.length + " finds checked on their own pages</span>" + (carried.length ? "<span>" + carried.length + " carried from earlier runs</span>" : "") + "</div>" + banner + "</div></section>";
+      '<div class="hero-meta"><span>Updated ' + esc(fmt(runDate, { weekday: "long", day: "numeric", month: "long" })) + "</span><span>" + finds.length + " finds checked on their own pages</span>" + (carried.length ? "<span>" + carried.length + " carried from earlier runs</span>" : "") + "</div>" + banner + "</div>" + quoteCard() + "</section>";
   }
+
+  /* A rotating quote on luck and showing up: a new one on every load and every 45 seconds. */
+  const QUOTES = (window.LUCK_QUOTES || []).concat(window.LUCK_QUOTES_EXTRA || []).filter((q) => q && q.text && q.by);
+  let qi = -1;
+  function pickQuote(step) {
+    if (!QUOTES.length) return null;
+    if (qi < 0) { const last = Number(store.get("luck.quote")); do { qi = Math.floor(Math.random() * QUOTES.length); } while (QUOTES.length > 1 && qi === last); }
+    else if (step) qi = (qi + step + QUOTES.length) % QUOTES.length;
+    store.set("luck.quote", String(qi));
+    return QUOTES[qi];
+  }
+  const quoteInner = (q) => '<blockquote>' + esc(q.text) + '</blockquote><figcaption>' + (q.attributed ? "Attributed to " : "") + esc(q.by) + "</figcaption>";
+  function quoteCard() {
+    const q = pickQuote(0);
+    if (!q) return "";
+    return '<figure class="luck-quote" aria-live="polite"><span class="lq-mark" aria-hidden="true">“</span><div class="lq-body"' + (q.source ? ' title="' + esc(q.source) + '"' : "") + ">" + quoteInner(q) + '</div><button class="lq-next" type="button" data-next-quote aria-label="Show another quote">' + ICON.arrow + "</button></figure>";
+  }
+  function nextQuote() {
+    const el = $(".luck-quote .lq-body");
+    if (!el) return;
+    const q = pickQuote(1);
+    const swap = () => { el.innerHTML = quoteInner(q); el.title = q.source || ""; el.classList.remove("out"); };
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { swap(); return; }
+    el.classList.add("out");
+    setTimeout(swap, 280);
+  }
+  setInterval(() => { if (!document.hidden && !document.querySelector(".luck-quote:hover")) nextQuote(); }, 45000);
 
   /* Shown above everything else whenever something is waiting on the person. */
   function followUpsModule() {
@@ -705,6 +732,7 @@
     if (t.closest("[data-fresh]")) { F.fresh = !F.fresh; render(false); return; }
     if (t.closest("[data-export]")) { exportProgress(); return; }
     if (t.closest("[data-csv]")) { exportCsv(); return; }
+    if (t.closest("[data-next-quote]")) { nextQuote(); return; }
     if (t.closest("[data-hide-leads]")) { store.set("luck.hideLeads", "1"); const card = $(".leads-card"); if (card) card.remove(); return; }
     const weekCal = t.closest("[data-week-ics]");
     if (weekCal) { const h = Number(($("#block-hour") || {}).value || 9); downloadFile("luck-week-" + runDate + ".ics", icsFile(weekEntries(h)), "text/calendar"); toast("Saved your week. Open the file to add it to your calendar."); return; }

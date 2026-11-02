@@ -56,6 +56,8 @@ node scripts/check-links.mjs "<data folder>/runs/<today>/report.md"
 node scripts/copy-check.mjs "<data folder>/runs/<today>/report.md"
 ```
 
+If the Luck Dashboard shortcut is missing from the desktop and the person never asked to remove it, put it back with `node scripts/shortcut.mjs "<data folder>"`.
+
 Fix every problem, confirm every `blocked` link by opening it in a browser or a page read tool, remove every `dead` or `moved` one, and rebuild until all three pass. Fill in `checks` honestly. Do not start the dashboard server. The person opens it when they are ready.
 
 ## 6. Save the run in the folder's history

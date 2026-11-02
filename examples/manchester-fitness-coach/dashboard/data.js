@@ -1,7 +1,7 @@
 // Written by build.mjs. Rebuilt on every run, do not edit by hand.
 window.LUCK_DATA = {
-  "generated": "2026-10-30T14:42:47.369Z",
-  "templateVersion": "1.1.2",
+  "generated": "2026-11-02T01:31:17.554Z",
+  "templateVersion": "1.2.0",
   "locale": "en-GB",
   "current": {
     "schema": 1,

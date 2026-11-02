@@ -92,7 +92,9 @@ Every find is scored out of 10 for fit and links to the page it came from. Befor
 
 ## Your luck dashboard
 
-Everything lands in a dashboard on your own computer, shaped around your city, your niche and your goals: a luck map where the closest dots are the best fits, your top three moves, a day by day plan with real event dates, every find with why it fits and where it came from, a pipeline from saved to met, and the luck you earn for every move.
+Everything lands in a dashboard on your own computer, shaped around your city, your niche and your goals: a luck map where the closest dots are the best fits, your top three moves, a day by day plan with real event dates, every find with why it fits and where it came from, a pipeline from saved to met, the luck you earn for every move, and a rotating quote on luck and showing up to start your day.
+
+Your agent puts a **Luck Dashboard** shortcut on your desktop, so your week is one double click away.
 
 <p align="center">
   <img src="assets/dashboard-opportunities.webp" width="900" alt="Opportunities for a strength coach in Manchester: cards with a gold fit score, the reason each one fits, and filters by people, events and communities">
@@ -141,7 +143,7 @@ Two full example runs. Download the repo and open either `dashboard/index.html` 
 
 ## Your data stays on your computer
 
-Your answers, runs, progress and dashboard are plain files in a `luck-accelerator` folder of your own. The dashboard runs on your computer only and loads nothing from the internet. The only thing that leaves your computer is the web searches your agent app runs, kept to your city, your niche and public names. More in [PRIVACY.md](PRIVACY.md).
+Your answers, runs, progress and dashboard are plain files in a `luck-accelerator` folder of your own. The only file it adds outside that folder is the desktop shortcut. The dashboard runs on your computer only and loads nothing from the internet. The only thing that leaves your computer is the web searches your agent app runs, kept to your city, your niche and public names. More in [PRIVACY.md](PRIVACY.md).
 
 ## FAQ
 
@@ -188,6 +190,7 @@ Yes. The example runs are in Austin and Manchester, and it searches in your loca
 | `scripts/build.mjs` | Checks a run, writes the report and updates your dashboard |
 | `scripts/check-links.mjs` | Checks every link before you see it |
 | `scripts/copy-check.mjs` | Checks every draft against the outreach rules |
+| `scripts/shortcut.mjs` | Puts the Luck Dashboard shortcut on your desktop (Windows, macOS, Linux) |
 | `examples/` | Two complete example runs with their dashboards |
 
 ## Go further

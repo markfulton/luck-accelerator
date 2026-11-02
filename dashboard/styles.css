@@ -608,3 +608,20 @@ html, body { overflow-x: clip; }
   .club-cta { max-width: none; }
 }
 @media print { .leads-card, .club-cta { display: none; } }
+
+/* Rotating luck quote: a glass card in the hero, below the text on smaller screens */
+.luck-quote { position: relative; margin: 22px 0 0; max-width: 560px; display: flex; gap: 12px; align-items: flex-start; padding: 16px 14px 16px 18px; border-radius: var(--radius-sm); background: var(--card); border: 1px solid var(--edge); box-shadow: var(--shadow); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); }
+.lq-mark { flex: none; font: 700 44px/0.9 Georgia, "Times New Roman", serif; color: var(--gold); margin-top: 2px; }
+.lq-body { flex: 1; min-width: 0; transition: opacity 0.28s ease, transform 0.28s ease; }
+.lq-body.out { opacity: 0; transform: translateY(4px); }
+.luck-quote blockquote { margin: 0; font: 500 15.5px/1.45 var(--font-display); color: var(--ink); letter-spacing: -0.005em; text-wrap: pretty; }
+.luck-quote figcaption { margin-top: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); }
+.lq-next { flex: none; align-self: flex-end; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--edge); background: var(--card-solid); color: var(--ink-2); cursor: pointer; display: grid; place-items: center; }
+.lq-next:hover { background: var(--gold-soft); color: var(--gold-deep); }
+.lq-next svg { width: 14px; height: 14px; }
+@media (min-width: 1140px) {
+  .hero { min-height: 380px; }
+  .luck-quote { position: absolute; right: 24px; bottom: 40px; width: 360px; margin: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .lq-body { transition: none; } }
+@media print { .luck-quote { display: none; } }
